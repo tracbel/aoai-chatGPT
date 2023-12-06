@@ -104,7 +104,7 @@ export const Answer = ({
                         </Stack>
                     </Stack.Item>
                 )}
-                 {isMobile && (
+                 {!isMobile && (
                 <Stack.Item className={styles.answerDisclaimerContainer}>
                     {/* TODO: Texto resposta */}
                     <span className={styles.answerDisclaimer}>O conteúdo gerado por IA pode estar incorreto</span>

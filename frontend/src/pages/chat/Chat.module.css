@@ -99,12 +99,12 @@
     flex-grow: 0;
     white-space: pre-wrap;
     word-wrap: break-word;
-    max-width: 800px;
+    max-width: 100%;
 }
 
 .chatMessageGpt {
     margin-bottom: 12px;
-    max-width: 80%;
+    max-width: 100%;
     display: flex;
 }
 
