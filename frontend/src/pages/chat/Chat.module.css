@@ -86,7 +86,7 @@
 
 .chatMessageUserMessage {
     padding: 20px;
-    background: #fae9b4;
+    background: #D8FFC8;
     border-radius: 8px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.14), 0px 0px 2px rgba(0, 0, 0, 0.12);
     font-style: normal;
@@ -329,7 +329,7 @@ a {
     font-weight: 600;
     font-size: 12px;
     line-height: 16px;
-    color: #fbbb00;
+    color: #397920;
     flex-direction: row;
     align-items: center;
     padding: 4px 6px;

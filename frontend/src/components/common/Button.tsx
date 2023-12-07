@@ -31,7 +31,7 @@ export const ShareButton: React.FC<ShareButtonProps> = () => {
       width: isMobile ? 25 : 150,
       height: 38,
       borderRadius: 4,
-      background: '#fbbb00',
+      background: '#397920',
       padding: '5px 12px',
       marginRight: '20px'
     },
@@ -39,7 +39,7 @@ export const ShareButton: React.FC<ShareButtonProps> = () => {
       color: '#FFFFFF',
     },
     rootHovered: {
-      background: '#f7cd4f',
+      background: '#FFDD00',
     },
     label: {
       fontWeight: 600,
@@ -66,7 +66,7 @@ export const ShareButton: React.FC<ShareButtonProps> = () => {
         styles={shareButtonStyles}
         iconProps={{ iconName: 'Light' }}
         onClick={openModal}
-        text={isMobile ? '' : 'Dicas'}
+        text={isMobile ? '' : 'Dicas TracGPT'}
       />
       <Modal
         isOpen={showModal}
