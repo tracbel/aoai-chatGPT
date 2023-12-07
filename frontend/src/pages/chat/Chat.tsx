@@ -11,7 +11,7 @@ import { isEmpty } from "lodash-es";
 import styles from "./Chat.module.css";
 import Azure from "../../assets/Azure.svg";
 import Logo from "../../assets/logo-tracbel.png";
-import Mascote from "../../assets/mascote.png";
+import Mascote from "../../assets/logo-teste.png";
 
 import {
     ChatMessage,
