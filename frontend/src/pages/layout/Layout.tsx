@@ -5,7 +5,7 @@ import Logo from "../../assets/logo-tracbel.png";
 import { CopyRegular, ShareRegular } from "@fluentui/react-icons";
 import { CommandBarButton, Dialog, Stack, TextField, ICommandBarStyles, IButtonStyles, DefaultButton  } from "@fluentui/react";
 import { useContext, useEffect, useState } from "react";
-import { HistoryButton, ShareButton } from "../../components/common/Button";
+import { ShareButton } from "../../components/common/Button";
 import { AppStateContext } from "../../state/AppProvider";
 import { CosmosDBStatus } from "../../api";
 
@@ -98,17 +98,17 @@ const Layout = () => {
                         </Link>
                     </Stack>
                     {/* TODO:BTN HISTORICO */}
-                    {/* <Stack horizontal tokens={{ childrenGap: 4 }}>
-                            {(appStateContext?.state.isCosmosDBAvailable?.status !== CosmosDBStatus.NotConfigured) && 
+                    <Stack horizontal tokens={{ childrenGap: 4 }}>
+                            {/* {(appStateContext?.state.isCosmosDBAvailable?.status !== CosmosDBStatus.NotConfigured) && 
                                 !isMobile && (<HistoryButton hidden={isMobile} onClick={handleHistoryClick} text={isMobile 
                                     ? '' 
                                     : (appStateContext?.state?.isChatHistoryOpen 
                                         ? "Ocultar histórico de bate-papo" 
                                         : "Mostrar histórico de bate-papo"
                                       )}/>)    
-                            }
+                            } */}
                             <ShareButton onClick={handleShareClick} />
-                    </Stack> */}
+                    </Stack>
 
                 </Stack>
             </header>
