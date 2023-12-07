@@ -66,7 +66,7 @@ export const ShareButton: React.FC<ShareButtonProps> = () => {
         styles={shareButtonStyles}
         iconProps={{ iconName: 'Light' }}
         onClick={openModal}
-        text={isMobile ? '' : 'Dicas'}
+        text={isMobile ? '' : 'Dicas TracGPT'}
       />
       <Modal
         isOpen={showModal}
