@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect, useContext, useLayoutEffect } from "react";
-import { CommandBarButton, IconButton, Dialog, DialogType, Stack } from "@fluentui/react";
+import { CommandBarButton, IconButton, Dialog, DialogType, Stack, Modal, IModalStyles } from "@fluentui/react";
 import { DismissRegular, SquareRegular, ShieldLockRegular, ErrorCircleRegular } from "@fluentui/react-icons";
 
 import ReactMarkdown from "react-markdown";
@@ -42,6 +42,22 @@ const enum messageStatus {
 }
 
 const Chat = () => {
+    // TODO: Modal citação
+    const [showModal, setShowModal] = useState(false);
+    const modalStyles: Partial<IModalStyles> = {
+        main: {
+          borderRadius: '8px',
+        },
+      };
+
+    const openModal = () => {
+      setShowModal(true);
+    };
+    
+    const dismissModal = () => {
+      setShowModal(false);
+    };
+
     const appStateContext = useContext(AppStateContext)
     const chatMessageStreamEnd = useRef<HTMLDivElement | null>(null);
     const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -592,11 +608,20 @@ const Chat = () => {
                 <Stack horizontal className={styles.chatRoot}>
                     <div className={styles.chatContainer}>
                         {!messages || messages.length < 1 ? (
+                            // <Stack className={styles.chatEmptyState}>
+                            //     <img
+                            //         src={Mascote}
+                            //         className={styles.chatIcon}
+                            //         aria-hidden="true"
+                            //     />
+                            //     <h1 className={styles.chatEmptyStateTitle}>Vamos conversar?</h1>
+                            //     <h2 className={styles.chatEmptyStateSubtitle}>O TracGPT foi treinado para fornecer informações sobre o Grupo Tracbel.</h2>
+                            // </Stack>
                             <Stack className={styles.chatEmptyState}>
-                                <img
-                                    src={Mascote}
-                                    className={styles.chatIcon}
-                                    aria-hidden="true"
+                                <iframe
+                                    src="https://studiowox.com/projetos/tracbel/"
+                                    style={{ width: "100%", height: "380px", border: "none", margin: "1rem 0 -10px 0"}}
+                                    title="Conteúdo Tracbel"
                                 />
                                 <h1 className={styles.chatEmptyStateTitle}>Vamos conversar?</h1>
                                 <h2 className={styles.chatEmptyStateSubtitle}>O TracGPT foi treinado para fornecer informações sobre o Grupo Tracbel.</h2>
@@ -616,7 +641,9 @@ const Chat = () => {
                                                         answer: answer.content,
                                                         citations: parseCitationFromMessage(messages[index - 1]),
                                                     }}
-                                                    onCitationClicked={c => onShowCitation(c)}
+                                                    // TODO: ABRIR MODAL
+                                                    // onCitationClicked={c => onShowCitation(c)}
+                                                    onCitationClicked={c => openModal()}
                                                 />
                                             </div> : answer.role === ERROR ? <div className={styles.chatMessageError}>
                                                 <Stack horizontal className={styles.chatMessageErrorContent}>
@@ -644,6 +671,14 @@ const Chat = () => {
                                 <div ref={chatMessageStreamEnd} />
                             </div>
                         )}
+
+                        <Modal
+                            isOpen={showModal}
+                            onDismiss={dismissModal}
+                            isBlocking={false}
+                            containerClassName="modal-container"
+                            styles={modalStyles}
+                            > <h1>TESTANDO MODAL CITAÇÃO</h1></Modal>
 
                         <Stack horizontal className={isMobile ? styles.chatInputMobile : styles.chatInput}>
                             {isLoading && (
@@ -723,7 +758,7 @@ const Chat = () => {
                             />
                         </Stack>
                     </div>
-                    {/* Citation Panel */}
+                    {/* Citation Panel - Citação */}
                     {messages && messages.length > 0 && isCitationPanelOpen && activeCitation && ( 
                     <Stack.Item className={styles.citationPanel} tabIndex={0} role="tabpanel" aria-label="Painel de citações">
                         <Stack aria-label="Contêiner de cabeçalho do painel de citações" horizontal className={styles.citationPanelHeaderContainer} horizontalAlign="space-between" verticalAlign="center">
