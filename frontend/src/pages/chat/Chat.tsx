@@ -620,7 +620,7 @@ const Chat = () => {
                             <Stack className={styles.chatEmptyState}>
                                 <iframe
                                     src="https://studiowox.com/projetos/tracbel/"
-                                    style={{ width: "100%", height: "380px", border: "none", margin: "1rem 0 -10px 0"}}
+                                    style={{ width: "100%", height: "380px", border: "none", margin: "0 0 -30px 0"}}
                                     title="Conteúdo Tracbel"
                                 />
                                 <h1 className={styles.chatEmptyStateTitle}>Vamos conversar?</h1>
