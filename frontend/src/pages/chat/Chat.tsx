@@ -87,12 +87,18 @@ const Chat = () => {
     }
 
     const [ASSISTANT, TOOL, ERROR] = ["assistant", "tool", "error"]
-
+    // Mobile
     const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
     const handleResize = () => {
         setIsMobile(window.innerWidth < 768);
     };
+
+    // Tooltip
+    const [showIframeTooltip, setShowIframeTooltip] = useState(false);
+    const handleMouseEnterIframe = () => setShowIframeTooltip(true);
+    const handleMouseLeaveIframe = () => setShowIframeTooltip(false);
+    
 
     useEffect(() => {
         if(appStateContext?.state.isCosmosDBAvailable?.status === CosmosDBStatus.NotWorking && appStateContext.state.chatHistoryLoadingState === ChatHistoryLoadingState.Fail && hideErrorDialog){
@@ -617,15 +623,30 @@ const Chat = () => {
                             //     <h1 className={styles.chatEmptyStateTitle}>Vamos conversar?</h1>
                             //     <h2 className={styles.chatEmptyStateSubtitle}>O TracGPT foi treinado para fornecer informações sobre o Grupo Tracbel.</h2>
                             // </Stack>
-                            <Stack className={styles.chatEmptyState}>
+                            // <Stack className={styles.chatEmptyState}>
+                            //     <iframe
+                            //         src="https://studiowox.com/projetos/tracbel/"
+                            //         style={{ width: "100%", height: "380px", border: "none", margin: "0 0 -30px 0"}}
+                            //         title="Conteúdo Tracbel"
+                            //     />
+                            //     <h1 className={styles.chatEmptyStateTitle}>Vamos conversar?</h1>
+                            //     <h2 className={styles.chatEmptyStateSubtitle}>O BullGPT foi treinado para fornecer informações sobre as melhores Retroescavadeira do mercado.</h2>
+                            // </Stack>
+                            <Stack className={styles.chatEmptyState} onMouseEnter={handleMouseEnterIframe} onMouseLeave={handleMouseLeaveIframe}>
+                               
                                 <iframe
                                     src="https://studiowox.com/projetos/tracbel/"
                                     style={{ width: "100%", height: "380px", border: "none", margin: "0 0 -30px 0"}}
                                     title="Conteúdo Tracbel"
-                                />
+                                />  
+                                {showIframeTooltip &&  !isMobile && <div className={styles.tooltip}><p><b>•</b> Clique com o botão esquerdo sobre a imagem e gire para interagir.</p><p><b>•</b> Mova o scroll do mouse sobre a imagem mudar o zoom.</p>
+                                </div>}
+                                {!showIframeTooltip && <p className={styles.stackText}><i>Clique na Retroescavadeira Bull e gire para conhecer o melhor equipamento.</i></p>}
+                                {showIframeTooltip && <p className={styles.stackText2}><i>.</i></p>}
                                 <h1 className={styles.chatEmptyStateTitle}>Vamos conversar?</h1>
-                                <h2 className={styles.chatEmptyStateSubtitle}>O TracGPT foi treinado para fornecer informações sobre o Grupo Tracbel.</h2>
+                                <h2 className={styles.chatEmptyStateSubtitle}>O BullGPT foi treinado para fornecer informações sobre as melhores Retroescavadeira do mercado.</h2>
                             </Stack>
+
                         ) : (
                             <div className={styles.chatMessageStream} style={{ marginBottom: isLoading ? "40px" : "0px"}} role="log">
                                 {messages.map((answer, index) => (

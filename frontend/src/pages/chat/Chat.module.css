@@ -343,3 +343,60 @@ a {
     text-decoration: underline;
     cursor: pointer;
 }
+
+/* .tooltip {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 4px;
+    z-index: 100;
+} */
+
+.tooltip{
+    /* margin: 0 auto;
+    background: #7e57c2;
+    font-family: 'open sans';
+    font-size: 0.85em;
+    line-height: 1.6em;
+    border-radius: 15px;
+    width: 300px;
+    height: auto;
+    color: #fff;
+    padding: 20px;
+    position: relative;
+    margin-top: 30px; */
+    position: absolute;
+    width: 300px;
+    left: 70%;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 4px;
+    z-index: 100;
+    p{
+        margin: 3px !important;
+    }
+}
+.tooltip:after {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    border-top: 20px solid transparent; /* Borda superior transparente */
+    border-bottom: 20px solid transparent; /* Borda inferior transparente */
+    border-right: 20px solid #fff; /* Borda direita colorida, cria a "seta" para a esquerda */
+    left: -3%; /* Posiciona a seta no lado direito do tooltip */
+    top: 50%; /* Centraliza verticalmente */
+    transform: translateY(-50%); /* Ajuste fino da posição vertical */
+}
+
+.stackText{
+    margin: -20px 0 0 0;
+    z-index: 100;
+}
+.stackText2{
+    margin: -20px 0 0 0;
+    z-index: 100;
+    color: #bbb !important;
+}
