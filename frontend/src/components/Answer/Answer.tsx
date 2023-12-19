@@ -111,7 +111,8 @@ export const Answer = ({
                 </Stack.Item>
                  )}
                 </Stack>
-                {chevronIsExpanded && 
+                {/* Referencia */}
+                {/* {chevronIsExpanded && 
                     <div style={{ marginTop: 8, display: "flex", flexFlow: "wrap column", maxHeight: "150px", gap: "4px" }}>
                         {parsedAnswer.citations.map((citation, idx) => {
                             return (
@@ -130,7 +131,7 @@ export const Answer = ({
                                 </span>);
                         })}
                     </div>
-                }
+                } */}
             </Stack>
         </>
     );
