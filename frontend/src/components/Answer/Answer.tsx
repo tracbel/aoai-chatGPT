@@ -13,12 +13,12 @@ import supersub from 'remark-supersub'
 
 interface Props {
     answer: AskResponse;
-    onCitationClicked: (citedDocument: Citation) => void;
+    //onCitationClicked: (citedDocument: Citation) => void;
 }
 
 export const Answer = ({
-    answer,
-    onCitationClicked
+    answer
+   // onCitationClicked
 }: Props) => {
     const [isRefAccordionOpen, { toggle: toggleIsRefAccordionOpen }] = useBoolean(false);
     const filePathTruncationLimit = 50;
@@ -26,10 +26,10 @@ export const Answer = ({
     const parsedAnswer = useMemo(() => parseAnswer(answer), [answer]);
     const [chevronIsExpanded, setChevronIsExpanded] = useState(isRefAccordionOpen);
 
-    const handleChevronClick = () => {
-        setChevronIsExpanded(!chevronIsExpanded);
-        toggleIsRefAccordionOpen();
-      };
+    // const handleChevronClick = () => {
+    //     setChevronIsExpanded(!chevronIsExpanded);
+    //     toggleIsRefAccordionOpen();
+    //   };
 
     useEffect(() => {
         setChevronIsExpanded(isRefAccordionOpen);

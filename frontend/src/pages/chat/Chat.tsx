@@ -17,7 +17,7 @@ import {
     ChatMessage,
     ConversationRequest,
     conversationApi,
-    Citation,
+    //Citation,
     ToolMessageContent,
     ChatResponse,
     getUserInfo,
@@ -62,8 +62,8 @@ const Chat = () => {
     const chatMessageStreamEnd = useRef<HTMLDivElement | null>(null);
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [showLoadingMessage, setShowLoadingMessage] = useState<boolean>(false);
-    const [activeCitation, setActiveCitation] = useState<Citation>();
-    const [isCitationPanelOpen, setIsCitationPanelOpen] = useState<boolean>(false);
+    // const [activeCitation, setActiveCitation] = useState<Citation>();
+    // const [isCitationPanelOpen, setIsCitationPanelOpen] = useState<boolean>(false);
     const abortFuncs = useRef([] as AbortController[]);
     const [showAuthMessage, setShowAuthMessage] = useState<boolean>(true);
     const [messages, setMessages] = useState<ChatMessage[]>([])
@@ -477,8 +477,8 @@ const Chat = () => {
             }else{
                 appStateContext?.dispatch({ type: 'DELETE_CURRENT_CHAT_MESSAGES', payload: appStateContext?.state.currentChat.id});
                 appStateContext?.dispatch({ type: 'UPDATE_CHAT_HISTORY', payload: appStateContext?.state.currentChat});
-                setActiveCitation(undefined);
-                setIsCitationPanelOpen(false);
+                // setActiveCitation(undefined);
+                // setIsCitationPanelOpen(false);
                 setMessages([])
             }
         }
@@ -488,8 +488,8 @@ const Chat = () => {
     const newChat = () => {
         setProcessMessages(messageStatus.Processing)
         setMessages([])
-        setIsCitationPanelOpen(false);
-        setActiveCitation(undefined);
+        // setIsCitationPanelOpen(false);
+        // setActiveCitation(undefined);
         appStateContext?.dispatch({ type: 'UPDATE_CURRENT_CHAT', payload: null });
         setProcessMessages(messageStatus.Done)
     };
@@ -566,29 +566,29 @@ const Chat = () => {
         chatMessageStreamEnd.current?.scrollIntoView({ behavior: "smooth" })
     }, [showLoadingMessage, processMessages]);
 
-    const onShowCitation = (citation: Citation) => {
-        setActiveCitation(citation);
-        setIsCitationPanelOpen(true);
-    };
+    // const onShowCitation = (citation: Citation) => {
+    //     setActiveCitation(citation);
+    //     setIsCitationPanelOpen(true);
+    // };
 
-    const onViewSource = (citation: Citation) => {
-        if (citation.url && !citation.url.includes("blob.core")) {
-            window.open(citation.url, "_blank");
-        }
-    };
+    // const onViewSource = (citation: Citation) => {
+    //     if (citation.url && !citation.url.includes("blob.core")) {
+    //         window.open(citation.url, "_blank");
+    //     }
+    // };
 
-    const parseCitationFromMessage = (message: ChatMessage) => {
-        if (message?.role && message?.role === "tool") {
-            try {
-                const toolMessage = JSON.parse(message.content) as ToolMessageContent;
-                return toolMessage.citations;
-            }
-            catch {
-                return [];
-            }
-        }
-        return [];
-    }
+    // const parseCitationFromMessage = (message: ChatMessage) => {
+    //     if (message?.role && message?.role === "tool") {
+    //         try {
+    //             const toolMessage = JSON.parse(message.content) as ToolMessageContent;
+    //             return toolMessage.citations;
+    //         }
+    //         catch {
+    //             return [];
+    //         }
+    //     }
+    //     return [];
+    // }
 
     const disabledButton = () => {
         return isLoading || (messages && messages.length === 0) || clearingChat || appStateContext?.state.chatHistoryLoadingState === ChatHistoryLoadingState.Loading
@@ -659,11 +659,11 @@ const Chat = () => {
                                             answer.role === "assistant" ? <div className={styles.chatMessageGpt}>
                                                 <Answer
                                                     answer={{
-                                                        answer: answer.content,
-                                                        citations: parseCitationFromMessage(messages[index - 1]),
+                                                        answer: answer.content
+                                                        //citations: parseCitationFromMessage(messages[index - 1]),
                                                     }}
                                                     // TODO: ABRIR MODAL
-                                                    onCitationClicked={c => onShowCitation(c)}
+                                                    //onCitationClicked={c => onShowCitation(c)}
                                                     // onCitationClicked={c => openModal()}
                                                 />
                                             </div> : answer.role === ERROR ? <div className={styles.chatMessageError}>
@@ -682,9 +682,9 @@ const Chat = () => {
                                             <Answer
                                                 answer={{
                                                     answer: "Gerando resposta...",
-                                                    citations: []
+                                                    // citations: []
                                                 }}
-                                                onCitationClicked={() => null}
+                                                // onCitationClicked={() => null}
                                             />
                                         </div>
                                     </>
@@ -780,7 +780,7 @@ const Chat = () => {
                         </Stack>
                     </div>
                     {/* Citation Panel - Citação */}
-                    {messages && messages.length > 0 && isCitationPanelOpen && activeCitation && ( 
+                    {/* {messages && messages.length > 0 && isCitationPanelOpen && activeCitation && ( 
                     <Stack.Item className={styles.citationPanel} tabIndex={0} role="tabpanel" aria-label="Painel de citações">
                         <Stack aria-label="Contêiner de cabeçalho do painel de citações" horizontal className={styles.citationPanelHeaderContainer} horizontalAlign="space-between" verticalAlign="center">
                             <span aria-label="Citações" className={styles.citationPanelHeader}>Citações</span>
@@ -797,7 +797,7 @@ const Chat = () => {
                         />
                         </div>
                     </Stack.Item>
-                )}
+                )} */}
                 {(appStateContext?.state.isChatHistoryOpen && appStateContext?.state.isCosmosDBAvailable?.status !== CosmosDBStatus.NotConfigured) && <ChatHistoryPanel/>}
                 </Stack>
             )}

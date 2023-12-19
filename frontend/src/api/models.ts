@@ -1,6 +1,6 @@
 export type AskResponse = {
     answer: string;
-    citations: Citation[];
+    //citations: Citation[];
     error?: string;
 };
 
