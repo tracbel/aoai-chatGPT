@@ -663,8 +663,8 @@ const Chat = () => {
                                                         citations: parseCitationFromMessage(messages[index - 1]),
                                                     }}
                                                     // TODO: ABRIR MODAL
-                                                    // onCitationClicked={c => onShowCitation(c)}
-                                                    onCitationClicked={c => openModal()}
+                                                    onCitationClicked={c => onShowCitation(c)}
+                                                    // onCitationClicked={c => openModal()}
                                                 />
                                             </div> : answer.role === ERROR ? <div className={styles.chatMessageError}>
                                                 <Stack horizontal className={styles.chatMessageErrorContent}>
@@ -693,13 +693,13 @@ const Chat = () => {
                             </div>
                         )}
 
-                        <Modal
+                        {/* <Modal
                             isOpen={showModal}
                             onDismiss={dismissModal}
                             isBlocking={false}
                             containerClassName="modal-container"
                             styles={modalStyles}
-                            > <h1>TESTANDO MODAL CITAÇÃO</h1></Modal>
+                            > <h1>TESTANDO MODAL CITAÇÃO</h1></Modal> */}
 
                         <Stack horizontal className={isMobile ? styles.chatInputMobile : styles.chatInput}>
                             {isLoading && (
