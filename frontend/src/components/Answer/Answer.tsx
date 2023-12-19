@@ -81,7 +81,7 @@ export const Answer = ({
                     />
                 </Stack.Item>
                 <Stack horizontal className={styles.answerFooter}>
-                {!!parsedAnswer.citations.length && (
+                {/* {!!parsedAnswer.citations.length && (
                     <Stack.Item
                         onKeyDown={e => e.key === "Enter" || e.key === " " ? toggleIsRefAccordionOpen() : null}
                     >
@@ -103,7 +103,7 @@ export const Answer = ({
                             
                         </Stack>
                     </Stack.Item>
-                )}
+                )} */}
                  {!isMobile && (
                 <Stack.Item className={styles.answerDisclaimerContainer}>
                     {/* TODO: Texto resposta */}
