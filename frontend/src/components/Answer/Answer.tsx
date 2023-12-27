@@ -23,7 +23,8 @@ export const Answer = ({
     const [isRefAccordionOpen, { toggle: toggleIsRefAccordionOpen }] = useBoolean(false);
     const filePathTruncationLimit = 50;
 
-    const parsedAnswer = useMemo(() => parseAnswer(answer), [answer]);
+    const parsedAnswer = useMemo(() => parseAnswer(answer), []);
+    // const parsedAnswer = useMemo(() => parseAnswer(answer), [answer]);
     const [chevronIsExpanded, setChevronIsExpanded] = useState(isRefAccordionOpen);
 
     // const handleChevronClick = () => {
@@ -80,7 +81,7 @@ export const Answer = ({
                         className={styles.answerText}
                     />
                 </Stack.Item>
-                {/* <Stack horizontal className={styles.answerFooter}> */}
+                <Stack horizontal className={styles.answerFooter}>
                 {/* {!!parsedAnswer.citations.length && (
                     <Stack.Item
                         onKeyDown={e => e.key === "Enter" || e.key === " " ? toggleIsRefAccordionOpen() : null}
@@ -104,13 +105,13 @@ export const Answer = ({
                         </Stack>
                     </Stack.Item>
                 )} */}
-                 {/* {!isMobile && (
+                 {!isMobile && (
                 <Stack.Item className={styles.answerDisclaimerContainer}>
                  
                     <span className={styles.answerDisclaimer}>O conteúdo gerado por IA pode estar incorreto</span>
                 </Stack.Item>
                  )}
-                </Stack> */}
+                </Stack>
                 {/* Referencia */}
                 {/* {chevronIsExpanded && 
                     <div style={{ marginTop: 8, display: "flex", flexFlow: "wrap column", maxHeight: "150px", gap: "4px" }}>
