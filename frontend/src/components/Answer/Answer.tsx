@@ -23,8 +23,7 @@ export const Answer = ({
     const [isRefAccordionOpen, { toggle: toggleIsRefAccordionOpen }] = useBoolean(false);
     const filePathTruncationLimit = 50;
 
-    const parsedAnswer = useMemo(() => parseAnswer(answer), []);
-    // const parsedAnswer = useMemo(() => parseAnswer(answer), [answer]);
+    const parsedAnswer = useMemo(() => parseAnswer(answer), [answer]);
     const [chevronIsExpanded, setChevronIsExpanded] = useState(isRefAccordionOpen);
 
     // const handleChevronClick = () => {
