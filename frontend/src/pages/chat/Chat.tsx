@@ -617,7 +617,7 @@ const Chat = () => {
                 </Stack>
             ) : (
                 <Stack horizontal className={styles.chatRoot}>
-                    <div className={styles.chatContainer}>
+                    <div className={!messages || messages.length < 1 ? (styles.chatContainer):(styles.chatContainerBg)}>
                         {!messages || messages.length < 1 ? (
                             // <Stack className={styles.chatEmptyState}>
                             //     <img
