@@ -617,7 +617,7 @@ const Chat = () => {
                 </Stack>
             ) : (
                 <Stack horizontal className={styles.chatRoot}>
-                    <div className={!messages || messages.length < 1 ? (styles.chatContainer):(styles.chatContainerBg)}>
+                    <div className={!messages || messages.length < 1 ? (styles.chatContainerBg):(styles.chatContainerBg)}>
                         {!messages || messages.length < 1 ? (
                             // <Stack className={styles.chatEmptyState}>
                             //     <img
@@ -639,15 +639,15 @@ const Chat = () => {
                             // </Stack>
                             <Stack className={styles.chatEmptyState} onMouseEnter={handleMouseEnterIframe} onMouseLeave={handleMouseLeaveIframe}>
                                
-                                <iframe
+                                {/* <iframe
                                     src="https://studiowox.com/projetos/tracbel/"
                                     style={{ width: "100%", height: "380px", border: "none", margin: "0 0 -30px 0"}}
                                     title="Conteúdo Tracbel"
-                                />  
-                                {showIframeTooltip &&  !isMobile && <div className={styles.tooltip}><p><b>•</b> Clique com o botão esquerdo sobre a imagem e gire para interagir.</p><p><b>•</b> Mova o scroll do mouse sobre a imagem mudar o zoom.</p>
+                                />   */}
+                                {/* {showIframeTooltip &&  !isMobile && <div className={styles.tooltip}><p><b>•</b> Clique com o botão esquerdo sobre a imagem e gire para interagir.</p><p><b>•</b> Mova o scroll do mouse sobre a imagem mudar o zoom.</p>
                                 </div>}
                                 {!showIframeTooltip && <p className={styles.stackText}><i>Clique na Retroescavadeira Bull e gire para conhecer o melhor equipamento.</i></p>}
-                                {showIframeTooltip && <p className={styles.stackText2}><i>.</i></p>}
+                                {showIframeTooltip && <p className={styles.stackText2}><i>.</i></p>} */}
                                 <h1 className={styles.chatEmptyStateTitle}>Vamos conversar?</h1>
                                 <h2 className={styles.chatEmptyStateSubtitle}>Sou uma Inteligência Artificial desenvolvida pela Tracbel, especializada na marca Bull. Estou treinada para tentar responder a todas as suas duvidas e te ajudar a conhecer mais sobre as retroescavadeiras Bull HD 100 e HD 96. Como ainda estou aprendendo, caso eu nao consiga responder alguma pergunta, nao se preocupe, pois em breve nossos especialistas entrarão em contato com você</h2>
                             </Stack>
