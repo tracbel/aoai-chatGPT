@@ -649,7 +649,7 @@ const Chat = () => {
                                 {!showIframeTooltip && <p className={styles.stackText}><i>Clique na Retroescavadeira Bull e gire para conhecer o melhor equipamento.</i></p>}
                                 {showIframeTooltip && <p className={styles.stackText2}><i>.</i></p>} */}
                                 <h1 className={styles.chatEmptyStateTitle}>Vamos conversar?</h1>
-                                <h2 className={styles.chatEmptyStateSubtitle}>Sou uma Inteligência Artificial desenvolvida pela Tracbel, especializada na marca Bull. Estou treinada para tentar responder a todas as suas duvidas e te ajudar a conhecer mais sobre as retroescavadeiras Bull HD 100 e HD 96. Como ainda estou aprendendo, caso eu nao consiga responder alguma pergunta, nao se preocupe, pois em breve nossos especialistas entrarão em contato com você</h2>
+                                <h2 className={styles.chatEmptyStateSubtitle}>Sou uma Inteligência Artificial desenvolvida pela Tracbel, especializada na marca Bull.</h2>
                             </Stack>
 
                         ) : (
