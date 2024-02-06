@@ -11,7 +11,8 @@ import { isEmpty } from "lodash-es";
 import styles from "./Chat.module.css";
 import Azure from "../../assets/Azure.svg";
 import Logo from "../../assets/logo-tracbel.png";
-import Mascote from "../../assets/logo-teste.png";
+import Mascote from "../../assets/mascote2.png";
+import Bull from "../../assets/bullgpt.png";
 
 import {
     ChatMessage,
@@ -648,6 +649,16 @@ const Chat = () => {
                                 </div>}
                                 {!showIframeTooltip && <p className={styles.stackText}><i>Clique na Retroescavadeira Bull e gire para conhecer o melhor equipamento.</i></p>}
                                 {showIframeTooltip && <p className={styles.stackText2}><i>.</i></p>} */}
+                                <img
+                                    src={Bull}
+                                    className={styles.bullgpt}
+                                    aria-hidden="true"
+                                />
+                                <img
+                                    src={Mascote}
+                                    className={styles.chatIcon}
+                                    aria-hidden="true"
+                                />
                                 <h1 className={styles.chatEmptyStateTitle}>Vamos conversar?</h1>
                                 <h2 className={styles.chatEmptyStateSubtitle}>Sou uma Inteligência Artificial desenvolvida pela Tracbel, especializada na marca Bull.</h2>
                             </Stack>
