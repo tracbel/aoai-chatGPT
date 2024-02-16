@@ -17,7 +17,7 @@ export function parseAnswer(answer: AskResponse): ParsedAnswer {
     let citationReindex = 0;
     citationLinks?.forEach(link => {
         // Replacing the links/citations with number
-        let citationIndex = link.slice(lengthDocN, link.length);
+        let citationIndex = link.slice(lengthDocN, link.length - 1);
         let citation = cloneDeep(answer.citations[Number(citationIndex) - 1]) as Citation;
         if (!filteredCitations.find((c) => c.id === citationIndex)) {
           answerText = answerText.replaceAll(link, ` ^${++citationReindex}^ `);
