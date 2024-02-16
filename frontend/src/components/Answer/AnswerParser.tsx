@@ -3,7 +3,7 @@ import { cloneDeep } from "lodash-es";
 
 
 type ParsedAnswer = {
-    citations: Citation[];
+    // citations: Citation[];
     markdownFormatText: string;
 };
 
@@ -29,7 +29,7 @@ export function parseAnswer(answer: AskResponse): ParsedAnswer {
 
 
     return {
-        citations: filteredCitations,
+        // citations: filteredCitations,
         markdownFormatText: answerText
     };
 }
