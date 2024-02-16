@@ -3,7 +3,7 @@ import { cloneDeep } from "lodash-es";
 
 
 type ParsedAnswer = {
-    // citations: Citation[];
+    citations: Citation[];
     markdownFormatText: string;
 };
 
@@ -21,15 +21,15 @@ export function parseAnswer(answer: AskResponse): ParsedAnswer {
         let citation = cloneDeep(answer.citations[Number(citationIndex) - 1]) as Citation;
         if (!filteredCitations.find((c) => c.id === citationIndex)) {
           answerText = answerText.replaceAll(link, ` ^${++citationReindex}^ `);
-          citation.id = citationIndex; // original doc index to de-dupe
-          citation.reindex_id = citationReindex.toString(); // reindex from 1 for display
+        //   citation.id = citationIndex; // original doc index to de-dupe
+        //   citation.reindex_id = citationReindex.toString(); // reindex from 1 for display
           filteredCitations.push(citation);
         }
     })
 
 
     return {
-        // citations: filteredCitations,
+        citations: filteredCitations,
         markdownFormatText: answerText
     };
 }
