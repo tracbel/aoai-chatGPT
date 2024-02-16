@@ -118,31 +118,31 @@ def initialize_mongo_client(
         connection_string: str) -> MongoClient:
     return MongoClient(connection_string)
      
-def upsert_documents_to_index(
-        mongo_client: MongoClient,
-        database_name: str,
-        collection_name: str,
-        docs: List[Document]
-        ):
-    for document in docs:
-        finalDocChunk:dict = {}
-        finalDocChunk["_id"] = f"doc:{uuid.uuid4()}"
-        finalDocChunk['title'] = document.title
-        finalDocChunk["filepath"] = document.filepath
-        finalDocChunk["url"] = document.url
-        finalDocChunk["content"] = document.content
-        finalDocChunk["contentvector"] = document.contentVector
-        finalDocChunk["metadata"] = document.metadata
+# def upsert_documents_to_index(
+#         mongo_client: MongoClient,
+#         database_name: str,
+#         collection_name: str,
+#         docs: List[Document]
+#         ):
+#     for document in docs:
+#         finalDocChunk:dict = {}
+#         finalDocChunk["_id"] = f"doc:{uuid.uuid4()}"
+#         finalDocChunk['title'] = document.title
+#         finalDocChunk["filepath"] = document.filepath
+#         finalDocChunk["url"] = document.url
+#         finalDocChunk["content"] = document.content
+#         finalDocChunk["contentvector"] = document.contentVector
+#         finalDocChunk["metadata"] = document.metadata
 
-        mongo_collection = mongo_client[database_name][collection_name]
+#         mongo_collection = mongo_client[database_name][collection_name]
 
-        try:
-            mongo_collection.insert_one(finalDocChunk)
-            print(f"Upsert doc chunk {document.id} successfully")
+#         try:
+#             mongo_collection.insert_one(finalDocChunk)
+#             print(f"Upsert doc chunk {document.id} successfully")
         
-        except Exception as e:
-            print(f"Failed to upsert doc chunk {document.id}")
-            continue
+#         except Exception as e:
+#             print(f"Failed to upsert doc chunk {document.id}")
+#             continue
 
 def validate_index(
         mongo_client: MongoClient,
@@ -208,8 +208,8 @@ def create_index(config, credential, form_recognizer_client=None, embedding_mode
     print(f"Found {len(result.chunks)} chunks")
 
     # upsert documents to index
-    print("Upserting documents to index...")
-    upsert_documents_to_index(mongo_client, database_name, collection_name, result.chunks)
+    # print("Upserting documents to index...")
+    # upsert_documents_to_index(mongo_client, database_name, collection_name, result.chunks)
 
     # check if index is ready/validate index
     print("Validating index...")

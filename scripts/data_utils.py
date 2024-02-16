@@ -260,19 +260,19 @@ class BaseParser(ABC):
         with open(file_path, "r") as f:
             return self.parse(f.read(), os.path.basename(file_path))
 
-    def parse_directory(self, directory_path: str) -> List[Document]:
-        """Parses the given directory.
-        Args:
-            directory_path (str): The directory to parse.
-        Returns:
-            List[Document]: List of parsed documents.
-        """
-        documents = []
-        for file_name in os.listdir(directory_path):
-            file_path = os.path.join(directory_path, file_name)
-            if os.path.isfile(file_path):
-                documents.append(self.parse_file(file_path))
-        return documents
+    # def parse_directory(self, directory_path: str) -> List[Document]:
+    #     """Parses the given directory.
+    #     Args:
+    #         directory_path (str): The directory to parse.
+    #     Returns:
+    #         List[Document]: List of parsed documents.
+    #     """
+    #     documents = []
+    #     for file_name in os.listdir(directory_path):
+    #         file_path = os.path.join(directory_path, file_name)
+    #         if os.path.isfile(file_path):
+    #             documents.append(self.parse_file(file_path))
+    #     return documents
 
 class MarkdownParser(BaseParser):
     """Parses Markdown content."""
@@ -446,7 +446,7 @@ class ChunkingResult:
         num_files_with_errors (int): Number of files with errors.
         skipped_chunks (int): Number of chunks skipped.
     """
-    chunks: List[Document]
+    # chunks: List[Document]
     total_files: int
     num_unsupported_format_files: int = 0
     num_files_with_errors: int = 0
