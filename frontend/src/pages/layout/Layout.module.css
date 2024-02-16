@@ -111,3 +111,8 @@
     align-items: center;
     color: #242424;
 }
+
+sup {
+    visibility: hidden !important;
+    display: none !important;
+  }

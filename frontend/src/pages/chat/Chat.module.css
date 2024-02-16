@@ -453,3 +453,8 @@ a {
     z-index: 100;
     color: #bbb !important;
 }
+
+sup {
+    visibility: hidden !important;
+    display: none !important;
+  }
