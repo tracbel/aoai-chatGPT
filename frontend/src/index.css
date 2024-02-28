@@ -19,3 +19,8 @@ html {
 #root {
     height: 100%;
 }
+
+sup {
+    visibility: hidden !important;
+    display: none !important;
+  }

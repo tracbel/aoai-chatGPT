@@ -342,3 +342,8 @@ a {
     text-decoration: underline;
     cursor: pointer;
 }
+
+sup {
+    visibility: hidden !important;
+    display: none !important;
+  }

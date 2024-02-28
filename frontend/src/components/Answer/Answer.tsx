@@ -13,12 +13,12 @@ import supersub from 'remark-supersub'
 
 interface Props {
     answer: AskResponse;
-    onCitationClicked: (citedDocument: Citation) => void;
+    // onCitationClicked: (citedDocument: Citation) => void;
 }
 
 export const Answer = ({
-    answer,
-    onCitationClicked
+    answer
+    // onCitationClicked
 }: Props) => {
     const [isRefAccordionOpen, { toggle: toggleIsRefAccordionOpen }] = useBoolean(false);
     const filePathTruncationLimit = 50;
@@ -26,10 +26,10 @@ export const Answer = ({
     const parsedAnswer = useMemo(() => parseAnswer(answer), [answer]);
     const [chevronIsExpanded, setChevronIsExpanded] = useState(isRefAccordionOpen);
 
-    const handleChevronClick = () => {
-        setChevronIsExpanded(!chevronIsExpanded);
-        toggleIsRefAccordionOpen();
-      };
+    // const handleChevronClick = () => {
+    //     setChevronIsExpanded(!chevronIsExpanded);
+    //     toggleIsRefAccordionOpen();
+    //   };
 
     useEffect(() => {
         setChevronIsExpanded(isRefAccordionOpen);
@@ -48,26 +48,26 @@ export const Answer = ({
         };
     }, []);    
 
-    const createCitationFilepath = (citation: Citation, index: number, truncate: boolean = false) => {
-        let citationFilename = "";
+    // const createCitationFilepath = (citation: Citation, index: number, truncate: boolean = false) => {
+    //     let citationFilename = "";
 
-        if (citation.filepath && citation.chunk_id) {
-            if (truncate && citation.filepath.length > filePathTruncationLimit) {
-                const citationLength = citation.filepath.length;
-                citationFilename = `${citation.filepath.substring(0, 20)}...${citation.filepath.substring(citationLength -20)} - Part ${parseInt(citation.chunk_id) + 1}`;
-            }
-            else {
-                citationFilename = `${citation.filepath} - Part ${parseInt(citation.chunk_id) + 1}`;
-            }
-        }
-        else if (citation.filepath && citation.reindex_id) {
-            citationFilename = `${citation.filepath} - Part ${citation.reindex_id}`;
-        }
-        else {
-            citationFilename = `Citation ${index}`;
-        }
-        return citationFilename;
-    }
+    //     if (citation.filepath && citation.chunk_id) {
+    //         if (truncate && citation.filepath.length > filePathTruncationLimit) {
+    //             const citationLength = citation.filepath.length;
+    //             citationFilename = `${citation.filepath.substring(0, 20)}...${citation.filepath.substring(citationLength -20)} - Part ${parseInt(citation.chunk_id) + 1}`;
+    //         }
+    //         else {
+    //             citationFilename = `${citation.filepath} - Part ${parseInt(citation.chunk_id) + 1}`;
+    //         }
+    //     }
+    //     else if (citation.filepath && citation.reindex_id) {
+    //         citationFilename = `${citation.filepath} - Part ${citation.reindex_id}`;
+    //     }
+    //     else {
+    //         citationFilename = `Citation ${index}`;
+    //     }
+    //     return citationFilename;
+    // }
 
     return (
         <>
@@ -81,7 +81,7 @@ export const Answer = ({
                     />
                 </Stack.Item>
                 <Stack horizontal className={styles.answerFooter}>
-                {!!parsedAnswer.citations.length && (
+                {/*{!!parsedAnswer.citations.length && (
                     <Stack.Item
                         onKeyDown={e => e.key === "Enter" || e.key === " " ? toggleIsRefAccordionOpen() : null}
                     >
@@ -103,7 +103,7 @@ export const Answer = ({
                             
                         </Stack>
                     </Stack.Item>
-                )}
+                )}*/}
                  {!isMobile && (
                 <Stack.Item className={styles.answerDisclaimerContainer}>
                     {/* TODO: Texto resposta */}
@@ -111,7 +111,7 @@ export const Answer = ({
                 </Stack.Item>
                  )}
                 </Stack>
-                {chevronIsExpanded && 
+                {/* {chevronIsExpanded && 
                     <div style={{ marginTop: 8, display: "flex", flexFlow: "wrap column", maxHeight: "150px", gap: "4px" }}>
                         {parsedAnswer.citations.map((citation, idx) => {
                             return (
@@ -130,7 +130,7 @@ export const Answer = ({
                                 </span>);
                         })}
                     </div>
-                }
+                } */}
             </Stack>
         </>
     );
