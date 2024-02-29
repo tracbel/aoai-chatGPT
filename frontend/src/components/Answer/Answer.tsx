@@ -46,7 +46,8 @@ export const Answer = ({
         return () => {
             window.removeEventListener('resize', handleResize);
         };
-    }, []);    
+    }, []);     
+    
 
     // const createCitationFilepath = (citation: Citation, index: number, truncate: boolean = false) => {
     //     let citationFilename = "";
